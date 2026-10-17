@@ -1,0 +1,7 @@
+config.json
+logfile.txt
+*.log
+__pycache__/
+.venv/
+.pytest_cache/
+
