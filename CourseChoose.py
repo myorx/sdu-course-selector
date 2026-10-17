@@ -87,8 +87,10 @@ def response_result(response):
     if not isinstance(payload, dict):
         return False, "unexpected response format"
     result = payload.get("success")
-    if isinstance(result, list) and len(result) >= 2 and result[1]:
-        return True, "course selected"
+    if isinstance(result, list) and len(result) >= 2:
+        flag = result[1]
+        if flag is True or flag == 1 or (isinstance(flag, str) and flag.lower() == "true"):
+            return True, "course selected"
     return False, str(payload.get("message") or "course not selected")
 
 
